@@ -2,14 +2,14 @@
 
 ## 📋 Objective
 
-To simulate a **corporate network environment** by configuring a Windows Server 2019 Domain Controller and managing enterprise user accounts. This project demonstrates proficiency with **Active Directory Domain Services (AD DS)**, **DHCP/DNS configuration**, **PowerShell scripting**, and **Group Policy Management**.
+To simulate a **corporate network environment** by configuring a **Windows Server 2022 Domain Controller** and managing enterprise user accounts. This project demonstrates proficiency with **Active Directory Domain Services (AD DS)**, **DHCP/DNS configuration**, **PowerShell scripting**, and **Group Policy Management**.
 
 ---
 
 ## 🛠️ Tools & Technologies Used
 
 - **VirtualBox** - Hypervisor for virtual machine management
-- **Windows Server 2019 ISO** - Domain Controller operating system
+- **Windows Server 2022 ISO** - Domain Controller operating system
 - **Windows 10 ISO** - Client machine for testing
 - **PowerShell** - Bulk user creation and automation scripts
 - **Active Directory Domain Services (AD DS)** - User and computer management
@@ -20,13 +20,13 @@ To simulate a **corporate network environment** by configuring a Windows Server 
 
 ## 🔧 Key Skills Demonstrated
 
-✅ **Active Directory Domain Services (AD DS) Installation & Configuration**
-✅ **Domain Controller Promotion**
-✅ **DHCP & DNS Configuration**
-✅ **Bulk User Creation via PowerShell Scripting**
-✅ **Organizational Units (OUs) & Group Policy Objects (GPOs)**
-✅ **User Account Management & Permissions**
-✅ **Network Topology Design & Implementation**
+- ✅ **Active Directory Domain Services (AD DS) Installation & Configuration**
+- ✅ **Domain Controller Promotion**
+- ✅ **DHCP & DNS Configuration**
+- ✅ **Bulk User Creation via PowerShell Scripting**
+- ✅ **Organizational Units (OUs) & Group Policy Objects (GPOs)**
+- ✅ **User Account Management & Permissions**
+- ✅ **Network Topology Design & Implementation**
 
 ---
 
@@ -34,171 +34,214 @@ To simulate a **corporate network environment** by configuring a Windows Server 
 
 ```
 ┌─────────────────────────────────────────┐
-│      Virtual Network (192.168.1.0/24)   │
+│   Virtual Network (172.16.0.0/24)       │
 ├─────────────────────────────────────────┤
 │                                         │
-│  ┌──────────────────────────────────┐   │
-│  │  Domain Controller (DC1)         │   │
-│  │  OS: Windows Server 2019         │   │
-│  │  Role: AD DS, DHCP, DNS          │   │
-│  │  IP: 192.168.1.5                 │   │
-│  └──────────────────────────────────┘   │
-│           ⬇️ DHCP/DNS                   │
-│                                         │
-│  ┌──────────────────────────────────┐   │
-│  │  Client Machine (CLIENT1)        │   │
-│  │  OS: Windows 10                  │   │
-│  │  Role: Domain Member             │   │
-│  │  IP: 192.168.1.100 (DHCP)        │   │
-│  └──────────────────────────────────┘   │
+│  ┌──────────────────┐                   │
+│  │   DC01           │                   │
+│  │ Windows Server   │                   │
+│  │      2022        │                   │
+│  │ 172.16.0.1       │                   │
+│  │ mylab.local      │                   │
+│  └──────────────────┘                   │
+│           │                             │
+│           ├─ AD DS                      │
+│           ├─ DNS                        │
+│           └─ DHCP                       │
+│           │                             │
+│  ┌────────┴──────────┐                  │
+│  │                   │                  │
+│  ▼                   ▼                  │
+│ CLIENT1            CLIENT2              │
+│ (Windows 10)       (Windows 10)         │
 │                                         │
 └─────────────────────────────────────────┘
 ```
-
-![Network Diagram Placeholder](https://via.placeholder.com/600x300?text=AD+Network+Topology)
 
 ---
 
 ## 🚀 Implementation Steps
 
-### Step 1️⃣: Virtual Machine Setup & Network Configuration
+### Phase 1: Infrastructure Setup
 
-**Objective:** Create and configure virtual machines with proper network settings.
+#### Step 1️⃣: Resource Calibration
 
-**Actions Taken:**
-1. Created two virtual machines in VirtualBox:
-   - **DC1** (Domain Controller) - Windows Server 2019
-   - **CLIENT1** (Member Client) - Windows 10
-2. Configured network settings:
-   - Internal network adapter for domain communication
-   - Static IP for DC1 (192.168.1.5)
-   - DHCP-enabled adapter for CLIENT1
-3. Installed Windows Server 2019 and Windows 10 operating systems
+**Action:** Provisioning the virtual machine with **4GB RAM** and **2 CPUs** to ensure host system stability.
 
-**Screenshot:** ![VM Setup Placeholder](https://via.placeholder.com/600x400?text=VirtualBox+VM+Configuration)
+**Evidence:**
+![Hardware Summary](docs/phase-1/01_DC01_Hardware_Summary.png)
 
 ---
 
-### Step 2️⃣: Installing Active Directory Domain Services (AD DS)
+#### Step 2️⃣: OS Selection (Part 1)
+
+**Action:** Selecting the **Windows Server 2022 Evaluation ISO**.
+
+**Evidence:**
+![OS Selection 1](docs/phase-1/01b_OS_Selection.png)
+
+---
+
+#### Step 3️⃣: OS Selection (Part 2)
+
+**Action:** Ensuring the **Desktop Experience** version is installed for GUI-based management.
+
+**Evidence:**
+![OS Selection 2](docs/phase-1/02_DC01_OS_Selection.png)
+
+---
+
+#### Step 4️⃣: Initial Deployment
+
+**Action:** Successful OS installation and first **Administrator** login to DC01.
+
+**Evidence:**
+![First Login](docs/phase-1/03_DC01_First_Login.png)
+
+---
+
+#### Step 5️⃣: Standardized Naming
+
+**Action:** Implementing corporate naming standards by renaming the server to **DC01**.
+
+**Evidence:**
+![Rename DC01](docs/phase-1/04_DC01_Renamed.png)
+
+---
+
+#### Step 6️⃣: Domain Verification
+
+**Action:** Confirming successful promotion of **DC01** to the **mylab.local** domain.
+
+**Evidence:**
+![Domain Success](docs/phase-1/05_DC01_Domain_Verified.png)
+
+---
+
+#### Step 7️⃣: Static Network Identity
+
+**Action:** Implementation of **static IPv4 (172.16.0.1)** and **DNS services** to ensure service persistence.
+
+**Evidence:**
+![Static IP Config](docs/phase-1/06_Static_IP_Config.png)
+
+---
+
+### Phase 2: Domain Services & User Management
+
+#### Step 1️⃣: Installing Active Directory Domain Services (AD DS)
 
 **Objective:** Install and configure Active Directory on the Domain Controller.
 
 **Actions Taken:**
-1. Opened **Server Manager** on Windows Server 2019
-2. Added **Active Directory Domain Services** role
-3. Created a new forest and domain: `corp.local`
-4. Set domain functional level: Windows Server 2016
-5. Configured DSRM (Directory Services Restore Mode) password
+- Opened **Server Manager** on Windows Server 2022
+- Added **Active Directory Domain Services** role
+- Created a new forest and domain: **mylab.local**
+- Set domain functional level: **Windows Server 2016**
+- Configured DSRM (Directory Services Restore Mode) password
 
 **PowerShell Command Example:**
 ```powershell
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 ```
 
-**Screenshot:** ![AD DS Installation Placeholder](https://via.placeholder.com/600x400?text=Active+Directory+Installation)
-
 ---
 
-### Step 3️⃣: Post-Deployment Configuration & Domain Controller Promotion
+#### Step 2️⃣: Post-Deployment Configuration & Domain Controller Promotion
 
 **Objective:** Finalize domain controller setup and configure network services.
 
 **Actions Taken:**
-1. Promoted DC1 to Domain Controller for `corp.local` forest
-2. Configured DNS zones (Forward & Reverse Lookup Zones)
-3. Set up **DHCP** on DC1:
-   - Scope: 192.168.1.100 - 192.168.1.200
-   - Default Gateway: 192.168.1.5
-   - DNS Servers: 192.168.1.5
-4. Authorized DHCP server in Active Directory
-5. Joined CLIENT1 to the `corp.local` domain
-
-**Screenshot:** ![Domain Controller Setup Placeholder](https://via.placeholder.com/600x400?text=DC+Configuration+Complete)
+- Promoted DC01 to Domain Controller for **mylab.local** forest
+- Configured **DNS zones** (Forward & Reverse Lookup Zones)
+- Set up **DHCP** on DC01:
+  - Scope: 172.16.0.100 - 172.16.0.200
+  - Default Gateway: 172.16.0.1
+  - DNS Servers: 172.16.0.1
+  - Authorized DHCP server in Active Directory
+- Joined CLIENT1 to the **mylab.local** domain
 
 ---
 
-### Step 4️⃣: Bulk User Creation Using PowerShell
+#### Step 3️⃣: Bulk User Creation Using PowerShell
 
 **Objective:** Automate user account creation for enterprise simulation.
 
 **Actions Taken:**
-1. Created 1,000+ mock user accounts using PowerShell script
-2. Organized users in Organizational Units (OUs):
-   - `OU=Sales`
-   - `OU=IT`
-   - `OU=Finance`
-   - `OU=HR`
-3. Set standardized user properties:
-   - Email addresses
-   - Phone numbers
-   - Manager assignments
-   - Group memberships
+- Created **1,000+ mock user accounts** using PowerShell script with **names.txt** file
+- Organized users in Organizational Units (OUs):
+  - OU=Sales
+  - OU=IT
+  - OU=Finance
+  - OU=HR
+- Set standardized user properties:
+  - Email addresses
+  - Phone numbers
+  - Manager assignments
+  - Group memberships
 
 **PowerShell Script Example:**
 ```powershell
-# Create new user in Active Directory
-New-ADUser -Name "John Smith" `
-  -SamAccountName "jsmith" `
-  -UserPrincipalName "jsmith@corp.local" `
-  -Path "OU=Sales,DC=corp,DC=local" `
-  -Enabled $true `
-  -AccountPassword (ConvertTo-SecureString "P@ssw0rd123" -AsPlainText -Force)
+# Bulk import from names.txt
+$names = Get-Content "C:\names.txt"
 
-# Bulk import from CSV
-Import-Csv -Path "C:\users.csv" | ForEach-Object {
-  New-ADUser -Name $_.Name -SamAccountName $_.SamAccountName -UserPrincipalName $_.UserPrincipalName
+foreach ($name in $names) {
+    $samAccountName = ($name -split ' ')[0].ToLower() + ($name -split ' ')[1].ToLower().Substring(0,1)
+    
+    New-ADUser `
+        -Name "$name" `
+        -SamAccountName "$samAccountName" `
+        -UserPrincipalName "$samAccountName@mylab.local" `
+        -Path "OU=Users,DC=mylab,DC=local" `
+        -Enabled $true `
+        -AccountPassword (ConvertTo-SecureString "P@ssw0rd123" -AsPlainText -Force)
 }
 ```
 
-**Result:** ✅ **1,000+ users successfully created and organized**
-
-**Screenshot:** ![User Creation Placeholder](https://via.placeholder.com/600x400?text=1000+Users+Created)
+**Result:**
+- ✅ 1,000+ users successfully created and organized
+- ✅ All users properly scoped to departmental OUs
+- ✅ Standardized naming conventions applied
 
 ---
 
-### Step 5️⃣: Group Policy Management
+#### Step 4️⃣: Group Policy Management
 
 **Objective:** Implement security policies across the domain.
 
 **Actions Taken:**
-1. Created Group Policy Objects (GPOs) for:
-   - **Password Policy**: Minimum 12 characters, complexity required
-   - **Account Lockout**: 5 failed attempts = 30-minute lockout
-   - **Audit Policy**: Track user logons and access
-2. Applied GPOs to organizational units
-3. Tested policy enforcement on client machines
-
-**Screenshot:** ![Group Policy Placeholder](https://via.placeholder.com/600x400?text=Group+Policy+Objects)
+- Created **Group Policy Objects (GPOs)** for:
+  - **Password Policy:** Minimum 12 characters, complexity required
+  - **Account Lockout:** 5 failed attempts = 30-minute lockout
+  - **Audit Policy:** Track user logons and access
+- Applied GPOs to organizational units
+- Tested policy enforcement on client machines
 
 ---
 
 ## ✅ Outcomes & Results
 
-✅ **Successfully built a functional domain environment** with Windows Server 2019 Domain Controller
-
-✅ **Configured enterprise-grade services:**
-- Active Directory Domain Services
-- DHCP (Dynamic Host Configuration Protocol)
-- DNS (Domain Name System)
-- Group Policy Management
-
-✅ **Demonstrated scalability** by creating and managing 1,000+ user accounts
-
-✅ **Implemented security policies** using Group Policy Objects
-
-✅ **Validated domain functionality** with successful client machine authentication
+- ✅ Successfully built a **functional domain environment** with Windows Server 2022 Domain Controller
+- ✅ Configured enterprise-grade services:
+  - **Active Directory Domain Services**
+  - **DHCP (Dynamic Host Configuration Protocol)**
+  - **DNS (Domain Name System)**
+  - **Group Policy Management**
+- ✅ Demonstrated **scalability** by creating and managing **1,000+ user accounts**
+- ✅ Implemented **security policies** using Group Policy Objects
+- ✅ Validated **domain functionality** with successful client machine authentication
 
 ---
 
 ## 🎓 Key Learnings & Skills Acquired
 
-- Understanding of enterprise directory services architecture
-- Proficiency with PowerShell scripting for automation
-- Network service configuration (DHCP/DNS)
-- Security policy implementation
-- User and computer account management
-- Troubleshooting domain-related issues
-- Best practices for identity and access management
+- Understanding of enterprise **directory services architecture**
+- Proficiency with **PowerShell scripting** for automation
+- **Network service configuration** (DHCP/DNS)
+- **Security policy implementation** using GPOs
+- **User and computer account management** in enterprise environments
+- **Troubleshooting domain-related issues**
+- Best practices for **identity and access management**
 
 ---
 
@@ -209,6 +252,8 @@ Import-Csv -Path "C:\users.csv" | ForEach-Object {
 - Set up **Active Directory Certificate Services (AD CS)**
 - Implement **Single Sign-On (SSO)** solutions
 - Deploy **Azure AD Connect** for hybrid cloud integration
+- Add **advanced network segmentation**
+- Implement **Kerberos authentication hardening**
 
 ---
 
