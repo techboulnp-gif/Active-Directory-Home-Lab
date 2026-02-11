@@ -69,7 +69,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Provisioning the virtual machine with **4GB RAM** and **2 CPUs** to ensure host system stability.
 
 **Evidence:**
-![Hardware Summary](docs/phase-1/01_DC01_Hardware_Summary.png)
+![Hardware Summary](Active-Directory-Lab/docs/phase-1/01_DC01_Hardware_Summary.png)
 
 ---
 
@@ -78,7 +78,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Selecting the **Windows Server 2022 Evaluation ISO**.
 
 **Evidence:**
-![OS Selection 1](docs/phase-1/01b_OS_Selection.png)
+![OS Selection 1](Active-Directory-Lab/docs/phase-1/01b_OS_Selection.png)
 
 ---
 
@@ -87,7 +87,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Ensuring the **Desktop Experience** version is installed for GUI-based management.
 
 **Evidence:**
-![OS Selection 2](docs/phase-1/02_DC01_OS_Selection.png)
+![OS Selection 2](Active-Directory-Lab/docs/phase-1/02_DC01_OS_Selection.png)
 
 ---
 
@@ -96,7 +96,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Successful OS installation and first **Administrator** login to DC01.
 
 **Evidence:**
-![First Login](docs/phase-1/03_DC01_First_Login.png)
+![First Login](Active-Directory-Lab/docs/phase-1/03_DC01_First_Login.png)
 
 ---
 
@@ -105,7 +105,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Implementing corporate naming standards by renaming the server to **DC01**.
 
 **Evidence:**
-![Rename DC01](docs/phase-1/04_DC01_Renamed.png)
+![Rename DC01](Active-Directory-Lab/docs/phase-1/04_DC01_Renamed.png)
 
 ---
 
@@ -114,7 +114,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Confirming successful promotion of **DC01** to the **mylab.local** domain.
 
 **Evidence:**
-![Domain Success](docs/phase-1/05_DC01_Domain_Verified.png)
+![Domain Success](Active-Directory-Lab/docs/phase-1/05_DC01_Domain_Verified.png)
 
 ---
 
@@ -123,7 +123,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Implementation of **static IPv4 (172.16.0.1)** and **DNS services** to ensure service persistence.
 
 **Evidence:**
-![Static IP Config](docs/phase-1/06_Static_IP_Config.png)
+![Static IP Config](Active-Directory-Lab/docs/phase-1/06_Static_IP_Config.png)
 
 ---
 
@@ -134,7 +134,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Configured dual **Network Interface Cards (NICs)**. One adapter is set to **NAT** for external updates, while the other is set to an **Internal Network** for isolated lab communication.
 
 **Evidence:**
-![Network Config](docs/phase-2/1_Dual_NICs.png)
+![Network Config](1_Dual_NICs.png)
 
 ---
 
@@ -143,7 +143,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Launched the **PowerShell ISE** as Administrator to begin the automation workflow.
 
 **Evidence:**
-![ISE Setup](docs/phase-2/2_PowerShell_ISE_Open.png)
+![ISE Setup](2_PowerShell_ISE_Open.png)
 
 ---
 
@@ -152,7 +152,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Implemented a **foreach loop** script designed to parse a **names.txt** file and generate standardized **Active Directory user objects**.
 
 **Evidence:**
-![Script Logic](docs/phase-2/3_Script_Pasted.png)
+![Script Logic](3_Script_Pasted.png)
 
 ---
 
@@ -161,7 +161,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Saved the automation logic as a reusable **.ps1 script** for future deployment and auditing.
 
 **Evidence:**
-![Script Saved](docs/phase-2/4_Script_File_Saved.png)
+![Script Saved](4_Script_File_Saved.png)
 
 ---
 
@@ -170,7 +170,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Verified that the **names.txt** source file was correctly mapped to the script's input variable.
 
 **Evidence:**
-![Data Ready](docs/phase-2/5_Script_and_Names_Ready.png)
+![Data Ready](5_Script_and_Names_Ready.png)
 
 ---
 
@@ -179,7 +179,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Executed the script. The console reflects **real-time creation of 1,000+ accounts** in the domain.
 
 **Evidence:**
-![Script Running](docs/phase-2/6_Script_Running.png)
+![Script Running](6_Script_Running.png)
 
 ---
 
@@ -188,7 +188,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Verified the successful creation of all objects within the **_EMPLOYEES Organizational Unit (OU)**.
 
 **Evidence:**
-![Final Audit](docs/phase-2/7_AD_Users_Verified.png)
+![Final Audit](7_AD_Users_Verified.png)
 
 ---
 
