@@ -127,95 +127,68 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 
 ---
 
-### Phase 2: Domain Services & User Management
+### Phase 2: Network Multi-Homing & PowerShell Automation
 
-#### Step 1️⃣: Installing Active Directory Domain Services (AD DS)
+#### Step 1️⃣: Network Multi-Homing (Dual NICs)
 
-**Objective:** Install and configure Active Directory on the Domain Controller.
+**Action:** Configured dual **Network Interface Cards (NICs)**. One adapter is set to **NAT** for external updates, while the other is set to an **Internal Network** for isolated lab communication.
 
-**Actions Taken:**
-- Opened **Server Manager** on Windows Server 2022
-- Added **Active Directory Domain Services** role
-- Created a new forest and domain: **mylab.local**
-- Set domain functional level: **Windows Server 2016**
-- Configured DSRM (Directory Services Restore Mode) password
-
-**PowerShell Command Example:**
-```powershell
-Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-```
+**Evidence:**
+![Network Config](docs/phase-2/1_Dual_NICs.png)
 
 ---
 
-#### Step 2️⃣: Post-Deployment Configuration & Domain Controller Promotion
+#### Step 2️⃣: Administrative Environment Prep
 
-**Objective:** Finalize domain controller setup and configure network services.
+**Action:** Launched the **PowerShell ISE** as Administrator to begin the automation workflow.
 
-**Actions Taken:**
-- Promoted DC01 to Domain Controller for **mylab.local** forest
-- Configured **DNS zones** (Forward & Reverse Lookup Zones)
-- Set up **DHCP** on DC01:
-  - Scope: 172.16.0.100 - 172.16.0.200
-  - Default Gateway: 172.16.0.1
-  - DNS Servers: 172.16.0.1
-  - Authorized DHCP server in Active Directory
-- Joined CLIENT1 to the **mylab.local** domain
+**Evidence:**
+![ISE Setup](docs/phase-2/2_PowerShell_ISE_Open.png)
 
 ---
 
-#### Step 3️⃣: Bulk User Creation Using PowerShell
+#### Step 3️⃣: Script Implementation
 
-**Objective:** Automate user account creation for enterprise simulation.
+**Action:** Implemented a **foreach loop** script designed to parse a **names.txt** file and generate standardized **Active Directory user objects**.
 
-**Actions Taken:**
-- Created **1,000+ mock user accounts** using PowerShell script with **names.txt** file
-- Organized users in Organizational Units (OUs):
-  - OU=Sales
-  - OU=IT
-  - OU=Finance
-  - OU=HR
-- Set standardized user properties:
-  - Email addresses
-  - Phone numbers
-  - Manager assignments
-  - Group memberships
-
-**PowerShell Script Example:**
-```powershell
-# Bulk import from names.txt
-$names = Get-Content "C:\names.txt"
-
-foreach ($name in $names) {
-    $samAccountName = ($name -split ' ')[0].ToLower() + ($name -split ' ')[1].ToLower().Substring(0,1)
-    
-    New-ADUser `
-        -Name "$name" `
-        -SamAccountName "$samAccountName" `
-        -UserPrincipalName "$samAccountName@mylab.local" `
-        -Path "OU=Users,DC=mylab,DC=local" `
-        -Enabled $true `
-        -AccountPassword (ConvertTo-SecureString "P@ssw0rd123" -AsPlainText -Force)
-}
-```
-
-**Result:**
-- ✅ 1,000+ users successfully created and organized
-- ✅ All users properly scoped to departmental OUs
-- ✅ Standardized naming conventions applied
+**Evidence:**
+![Script Logic](docs/phase-2/3_Script_Pasted.png)
 
 ---
 
-#### Step 4️⃣: Group Policy Management
+#### Step 4️⃣: Persistence & Documentation
 
-**Objective:** Implement security policies across the domain.
+**Action:** Saved the automation logic as a reusable **.ps1 script** for future deployment and auditing.
 
-**Actions Taken:**
-- Created **Group Policy Objects (GPOs)** for:
-  - **Password Policy:** Minimum 12 characters, complexity required
-  - **Account Lockout:** 5 failed attempts = 30-minute lockout
-  - **Audit Policy:** Track user logons and access
-- Applied GPOs to organizational units
-- Tested policy enforcement on client machines
+**Evidence:**
+![Script Saved](docs/phase-2/4_Script_File_Saved.png)
+
+---
+
+#### Step 5️⃣: Data Integration Verification
+
+**Action:** Verified that the **names.txt** source file was correctly mapped to the script's input variable.
+
+**Evidence:**
+![Data Ready](docs/phase-2/5_Script_and_Names_Ready.png)
+
+---
+
+#### Step 6️⃣: Live Execution (Bulk Creation)
+
+**Action:** Executed the script. The console reflects **real-time creation of 1,000+ accounts** in the domain.
+
+**Evidence:**
+![Script Running](docs/phase-2/6_Script_Running.png)
+
+---
+
+#### Step 7️⃣: Final Active Directory Audit
+
+**Action:** Verified the successful creation of all objects within the **_EMPLOYEES Organizational Unit (OU)**.
+
+**Evidence:**
+![Final Audit](docs/phase-2/7_AD_Users_Verified.png)
 
 ---
 
