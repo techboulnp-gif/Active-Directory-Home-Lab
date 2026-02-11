@@ -69,7 +69,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Provisioning the virtual machine with **4GB RAM** and **2 CPUs** to ensure host system stability.
 
 **Evidence:**
-![Hardware Summary](docs/phase-1/01_DC01_Hardware_Summary.png)
+![Hardware Summary](Active-Directory-Lab/docs/phase-1/01_DC01_Hardware_Summary.png)
 
 ---
 
@@ -78,7 +78,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Selecting the **Windows Server 2022 Evaluation ISO**.
 
 **Evidence:**
-![OS Selection 1](docs/phase-1/01b_OS_Selection.png)
+![OS Selection 1](Active-Directory-Lab/docs/phase-1/01b_OS_Selection.png)
 
 ---
 
@@ -87,7 +87,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Ensuring the **Desktop Experience** version is installed for GUI-based management.
 
 **Evidence:**
-![OS Selection 2](docs/phase-1/02_DC01_OS_Selection.png)
+![OS Selection 2](Active-Directory-Lab/docs/phase-1/02_DC01_OS_Selection.png)
 
 ---
 
@@ -96,7 +96,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Successful OS installation and first **Administrator** login to DC01.
 
 **Evidence:**
-![First Login](docs/phase-1/03_DC01_First_Login.png)
+![First Login](Active-Directory-Lab/docs/phase-1/03_DC01_First_Login.png)
 
 ---
 
@@ -105,7 +105,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Implementing corporate naming standards by renaming the server to **DC01**.
 
 **Evidence:**
-![Rename DC01](docs/phase-1/04_DC01_Renamed.png)
+![Rename DC01](Active-Directory-Lab/docs/phase-1/04_DC01_Renamed.png)
 
 ---
 
@@ -114,7 +114,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Confirming successful promotion of **DC01** to the **mylab.local** domain.
 
 **Evidence:**
-![Domain Success](docs/phase-1/05_DC01_Domain_Verified.png)
+![Domain Success](Active-Directory-Lab/docs/phase-1/05_DC01_Domain_Verified.png)
 
 ---
 
@@ -123,7 +123,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Implementation of **static IPv4 (172.16.0.1)** and **DNS services** to ensure service persistence.
 
 **Evidence:**
-![Static IP Config](docs/phase-1/06_Static_IP_Config.png)
+![Static IP Config](Active-Directory-Lab/docs/phase-1/06_Static_IP_Config.png.png)
 
 ---
 
