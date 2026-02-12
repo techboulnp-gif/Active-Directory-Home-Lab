@@ -192,6 +192,43 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 
 ---
 
+### Phase 3: Active Directory Configuration & Domain Integration
+**In this phase, I transformed the standalone server into a central management hub by implementing security policies, automating massive user growth, and integrating a workstation into the domain.**
+
+#### Step 8️⃣: Security Hardening (Group Policy)
+**Action:** I used the **Group Policy Management Editor** to enforce an enterprise-grade security baseline:
+- **Minimum Password Length:** Increased to **12 characters**.
+- **Complexity Requirements:** Enabled to ensure passwords meet modern security standards.
+- **Enforce Password History:** Set to **24 passwords** to prevent "cycling" old credentials.
+**Evidence:**
+![Password Policy](phase-3/12_Password_Lockout_Policy.png)
+---
+#### Step 9️⃣: Automation & "Big Data" Management
+**Action:** Using a **PowerShell script** and a **names.txt** file, I automated the creation of **nearly 5,000 users**.
+- **The Display Limit:** While verifying the accounts, I discovered and documented the **Active Directory safety limit**, which defaults to displaying only the first **2,000 objects** in a folder.
+- **Logon Verification:** Verified user properties, specifically the **pre-Windows 2000 logon names** (e.g., MYLAB\\fus.masa) required for the initial login test.
+**Evidence:**
+![Bulk Users](phase-3/Bulk_User_Verification.png)
+---
+#### Step 🔟: Critical Troubleshooting: The Duplicate IP Conflict
+**Action:** A major hurdle occurred when the Windows 10 client could not reach the Domain Controller.
+- **Diagnosis:** Using **ipconfig /all**, I identified that the client was reporting a **(Duplicate) IP** status for 172.16.0.1.
+- **Root Cause:** Both the **Server** and the **Workstation** were competing for the same IP address on the internal network.
+- **Resolution:** I reconfigured the Windows 10 client with a unique **static IP of 172.16.0.2**, which immediately restored communication and allowed for a successful domain join.
+**Evidence:**
+![IP Conflict](phase-3/Troubleshooting_IP_Conflict.png)
+---
+#### Step 1️⃣1️⃣: Domain Join & Verification
+**Action:** Successfully joined the workstation to **mylab.local**, receiving the "Welcome" handshake.
+**Evidence:**
+![Domain Join](phase-3/13_Domain_Join_Success.png)
+---
+#### Step 1️⃣2️⃣: User Authentication Confirmation
+**Action:** Logged in to the client as **domain user fus.masa**. This confirmed that **DNS, DHCP, and AD Authentication** are all working in harmony.
+**Evidence:**
+![User Login](phase-3/14_Successful_Domain_User_Login.png)
+---
+
 ## ✅ Outcomes & Results
 
 - ✅ Successfully built a **functional domain environment** with Windows Server 2022 Domain Controller
