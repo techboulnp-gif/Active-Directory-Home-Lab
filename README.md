@@ -121,7 +121,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 ### Step 7: Static Network Identity
 **Action:** Configured a static IPv4 address for the Domain Controller to ensure a consistent network identity. 
 * **Configuration:** Assigned `172.16.0.1` with a `255.255.255.0` subnet mask.
-* **Evidence:** [Static IP Config](image_980495.png)
+* **Evidence:** ![Static IP Config](Active-Directory-Lab/docs/phase-1/static_ip.png)
  
 
 
