@@ -123,7 +123,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Implementation of **static IPv4 (172.16.0.1)** and **DNS services** to ensure service persistence.
 
 **Evidence:**
-![Static IP Config](Active-Directory-Lab/docs/phase-1/06_Static_IP_Config.png)
+![Static IP Config]image_980495.png)
 
 ---
 
@@ -188,7 +188,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Verified the successful creation of all objects within the **_EMPLOYEES Organizational Unit (OU)**.
 
 **Evidence:**
-![Final Audit](image_980495.png)
+![Final Audit](7_AD_Users_Verified.png)
 
 ---
 
