@@ -123,7 +123,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 * **Configuration:** Assigned `172.16.0.1` with a `255.255.255.0` subnet mask.
 * **Evidence:** [Static IP Config](image_980495.png)
 * 
-![Static IP Config](Active-Directory-Lab/docs/phase-1/06_Static_IP_Config.png)
+
 
 ---
 
@@ -229,7 +229,7 @@ domain.**
 * **Verification:** Successfully customized the MMC view to confirm all **5,000 objects** were provisioned.
 * **Evidence:** [Bulk Users](image_971c36.png)
 
-* ![5000 Users Bulk Creation](phase-3/image_971c36.png)
+* 
 
 ---
 ### Step 10: Critical Troubleshooting: The Duplicate IP Conflict
@@ -238,7 +238,7 @@ domain.**
 * **Resolution:** Reconfigured the client with a unique static IP of `172.16.0.2`, restoring domain communication.
 * **Evidence:** [IP Conflict](image_98081a.png)
 
-* ![Duplicate IP Conflict Resolution](phase-3/image_98081a.png)
+* 
 
 ---
 #### Step 1️⃣1️⃣: Domain Join & Verification
