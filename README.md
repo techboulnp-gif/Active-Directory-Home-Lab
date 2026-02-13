@@ -118,12 +118,10 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 
 ---
 
-#### Step 7️⃣: Static Network Identity
-
-**Action:** Implementation of **static IPv4 (172.16.0.1)** and **DNS services** to ensure service persistence.
-
-**Evidence:**
-![Static IP Config]image_980495.png)
+### Step 7: Static Network Identity
+**Action:** Configured a static IPv4 address for the Domain Controller to ensure a consistent network identity. 
+* **Configuration:** Assigned `172.16.0.1` with a `255.255.255.0` subnet mask.
+* **Evidence:** [Static IP Config](image_980495.png)
 
 ---
 
@@ -223,20 +221,19 @@ domain.**
 **Evidence:**
 ![Password Policy](phase-3/12_Password_Lockout_Policy.png)
 ---
-#### Step 9️⃣: Automation & "Big Data" Management
-**Action:** Using a **PowerShell script** and a **names.txt** file, I automated the creation of **5,000 users**.
-- **The Display Limit:** While verifying the accounts, I discovered and documented the **Active Directory safety limit**, which defaults to displaying only the first **2,000 objects** in a folder.
-- **Logon Verification:** Verified user properties, specifically the **pre-Windows 2000 logon names** (e.g., MYLAB\\fus.masa) required for the initial login test.
-**Evidence:**
-![Bulk Users]age_971c36.png)
+### Step 9: Automation & "Big Data" Management
+**Action:** Using a PowerShell script and a names.txt file, I automated the creation of **5,000** users.
+* **The Display Limit:** During verification, I documented the AD safety limit, which defaults to 2,000 objects.
+* **Verification:** Successfully customized the MMC view to confirm all **5,000 objects** were provisioned.
+* **Evidence:** [Bulk Users](image_971c36.png)
+
 ---
-#### Step 🔟: Critical Troubleshooting: The Duplicate IP Conflict
+### Step 10: Critical Troubleshooting: The Duplicate IP Conflict
 **Action:** A major hurdle occurred when the Windows 10 client could not reach the Domain Controller.
-- **Diagnosis:** Using **ipconfig /all**, I identified that the client was reporting a **(Duplicate) IP** status for 172.16.0.1.
-- **Root Cause:** Both the **Server** and the **Workstation** were competing for the same IP address on the internal network.
-- **Resolution:** I reconfigured the Windows 10 client with a unique **static IP of 172.16.0.2**, which immediately restored communication and allowed for a successful domain join.
-**Evidence:**
-![IP Conflictimage_98081a.png)
+* **Diagnosis:** Using `ipconfig /all`, I identified a `(Duplicate)` IP status for `172.16.0.1`.
+* **Resolution:** Reconfigured the client with a unique static IP of `172.16.0.2`, restoring domain communication.
+* **Evidence:** [IP Conflict](image_98081a.png)
+
 ---
 #### Step 1️⃣1️⃣: Domain Join & Verification
 **Action:** Successfully joined the workstation to **mylab.local**, receiving the "Welcome" handshake.
