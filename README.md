@@ -193,7 +193,27 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 ---
 
 ### Phase 3: Active Directory Configuration & Domain Integration
-**In this phase, I transformed the standalone server into a central management hub by implementing security policies, automating massive user growth, and integrating a workstation into the domain.**
+**In this phase, I transformed the standalone server into a central management hub by implementing security policies, automating massive user growth, and integrating a workstation into the
+
+#### Step 8️⃣: DHCP Role Installation
+**Action:** Installed the **DHCP Server role** on DC01 to enable automatic IP address assignment for client machines on the internal network.
+**Evidence:**
+![DHCP Role](phase-3/9_DHCP_Role_Installed.png)
+---
+
+#### Step 9️⃣: DHCP Authorization
+**Action:** **Authorized the DHCP server** in Active Directory to allow it to begin servicing client requests on the domain network.
+**Evidence:**
+![DHCP Authorized](phase-3/10_DHCP_Authorized.png)
+---
+
+#### Step 🔟: DHCP Scope Configuration
+**Action:** Created and activated a **DHCP scope (172.16.0.100-200)** to automatically assign IP addresses to Windows 10 clients joining the domain.
+**Evidence:**
+![DHCP Scope](phase-3/11_DHCP_Scope_Active.png)
+---
+
+domain.**
 
 #### Step 8️⃣: Security Hardening (Group Policy)
 **Action:** I used the **Group Policy Management Editor** to enforce an enterprise-grade security baseline:
