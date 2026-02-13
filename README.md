@@ -188,7 +188,7 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 **Action:** Verified the successful creation of all objects within the **_EMPLOYEES Organizational Unit (OU)**.
 
 **Evidence:**
-![Final Audit](7_AD_Users_Verified.png)
+![Final Audit](image_980495.png)
 
 ---
 
@@ -224,11 +224,11 @@ domain.**
 ![Password Policy](phase-3/12_Password_Lockout_Policy.png)
 ---
 #### Step 9️⃣: Automation & "Big Data" Management
-**Action:** Using a **PowerShell script** and a **names.txt** file, I automated the creation of **nearly 5,000 users**.
+**Action:** Using a **PowerShell script** and a **names.txt** file, I automated the creation of **5,000 users**.
 - **The Display Limit:** While verifying the accounts, I discovered and documented the **Active Directory safety limit**, which defaults to displaying only the first **2,000 objects** in a folder.
 - **Logon Verification:** Verified user properties, specifically the **pre-Windows 2000 logon names** (e.g., MYLAB\\fus.masa) required for the initial login test.
 **Evidence:**
-![Bulk Users](phase-3/Bulk_User_Verification.png)
+![Bulk Users]age_971c36.png)
 ---
 #### Step 🔟: Critical Troubleshooting: The Duplicate IP Conflict
 **Action:** A major hurdle occurred when the Windows 10 client could not reach the Domain Controller.
@@ -236,7 +236,7 @@ domain.**
 - **Root Cause:** Both the **Server** and the **Workstation** were competing for the same IP address on the internal network.
 - **Resolution:** I reconfigured the Windows 10 client with a unique **static IP of 172.16.0.2**, which immediately restored communication and allowed for a successful domain join.
 **Evidence:**
-![IP Conflict](phase-3/Troubleshooting_IP_Conflict.png)
+![IP Conflictimage_98081a.png)
 ---
 #### Step 1️⃣1️⃣: Domain Join & Verification
 **Action:** Successfully joined the workstation to **mylab.local**, receiving the "Welcome" handshake.
