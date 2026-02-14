@@ -62,134 +62,83 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 
 ## 🚀 Implementation Steps
 
-### Phase 1: Infrastructure Setup
+## Phase 1: Infrastructure Setup
+This phase focuses on provisioning the underlying hardware and operating system required to host the Active Directory environment.
 
-#### Step 1️⃣: Resource Calibration
+### Step :one:: Resource Calibration
+**Action:** Provisioned a virtual machine with 4GB of RAM and 2 CPUs to ensure host system stability during the lab.
+* **Evidence:**
 
-**Action:** Provisioning the virtual machine with **4GB RAM** and **2 CPUs** to ensure host system stability.
+  
+    ![Resource Calibration](Active-Directory-Lab/docs/phase-1/01_DC01_Hardware_Summary.png)
+  
 
-**Evidence:**
-![Hardware Summary](Active-Directory-Lab/docs/phase-1/01_DC01_Hardware_Summary.png)
+### Step :two:: OS Selection (Part 1)
+**Action:** Selected the Windows Server 2022 Evaluation ISO as the foundation for the Domain Controller.
+* **Evidence:**
 
----
+  ![OS Selection 1](Active-Directory-Lab/docs/phase-1/01b_OS_Selection.png)
 
-#### Step 2️⃣: OS Selection (Part 1)
+### Step :three:: OS Selection (Part 2)
+**Action:** Ensured the "Desktop Experience" version was installed to allow for GUI-based management of Active Directory.
+* **Evidence:**
 
-**Action:** Selecting the **Windows Server 2022 Evaluation ISO**.
+  ![OS Selection 2](Active-Directory-Lab/docs/phase-1/02_DC01_OS_Selection.png)
 
-**Evidence:**
-![OS Selection 1](Active-Directory-Lab/docs/phase-1/01b_OS_Selection.png)
+### Step :four:: Initial Deployment
+**Action:** Performed the initial OS installation and verified the first successful Administrator login to the desktop environment.
+* **Evidence:**
+  ![Initial Login](Active-Directory-Lab/docs/phase-1/03_DC01_First_Login.png)
 
----
+### Step :five:: Standardized Naming
+**Action:** Implemented corporate naming standards by renaming the server to **DC01** to make it easily identifiable on the network.
+* **Evidence:**
+ ![Server Renaming](Active-Directory-Lab/docs/phase-1/04_DC01_Renamed.png)
 
-#### Step 3️⃣: OS Selection (Part 2)
+### Step :six:: Static Network Identity
+**Action:** Configured a static IPv4 address for the Domain Controller to ensure a consistent network identity.
+* **Configuration:** Assigned `172.16.0.1` with a `255.255.0.0` subnet mask to match the network topology.
+* **Evidence:**
+  
+   ![Static IP Config](Active-Directory-Lab/docs/phase-1/static_ip.png)
 
-**Action:** Ensuring the **Desktop Experience** version is installed for GUI-based management.
-
-**Evidence:**
-![OS Selection 2](Active-Directory-Lab/docs/phase-1/02_DC01_OS_Selection.png)
-
----
-
-#### Step 4️⃣: Initial Deployment
-
-**Action:** Successful OS installation and first **Administrator** login to DC01.
-
-**Evidence:**
-![First Login](Active-Directory-Lab/docs/phase-1/03_DC01_First_Login.png)
-
----
-
-#### Step 5️⃣: Standardized Naming
-
-**Action:** Implementing corporate naming standards by renaming the server to **DC01**.
-
-**Evidence:**
-![Rename DC01](Active-Directory-Lab/docs/phase-1/04_DC01_Renamed.png)
-
----
-
-#### Step 6️⃣: Domain Verification
-
-**Action:** Confirming successful promotion of **DC01** to the **mylab.local** domain.
-
-**Evidence:**
-![Domain Success](Active-Directory-Lab/docs/phase-1/05_DC01_Domain_Verified.png)
+### Step :seven:: Domain Verification
+**Action:** Promoted the server to a Domain Controller and confirmed the successful creation of the `mylab.local` forest.
+* **Evidence:**
+ ![Domain Verification](Active-Directory-Lab/docs/phase-1/05_DC01_Domain_Verified.png)
 
 ---
 
-### Step 7: Static Network Identity
-**Action:** Configured a static IPv4 address for the Domain Controller to ensure a consistent network identity. 
-* **Configuration:** Assigned `172.16.0.1` with a `255.255.255.0` subnet mask.
-* **Evidence:** ![Static IP Config](Active-Directory-Lab/docs/phase-1/static_ip.png)
- 
+## Phase 2: Network Multi-Homing & PowerShell Automation
+This phase establishes the communication bridge between the isolated lab and the external world while leveraging automation to scale the environment.
 
+### Step :one:: Network Multi-Homing (Dual NICs)
+**Action:** Configured dual Network Interface Cards (NICs) to facilitate both internal and external communication. One adapter is set to NAT for external updates, while the other is set to an Internal Network for isolated lab communication.
+* **Evidence:** ![Dual NIC Setup](01_Dual_NICs.png)
 
----
+### Step :two:: Administrative Environment Prep
+**Action:** Launched the PowerShell Integrated Scripting Environment (ISE) as an Administrator to begin the automation workflow.
+* **Evidence:** ![PowerShell ISE Open](03_PowerShell_ISE_Open.png)
 
-### Phase 2: Network Multi-Homing & PowerShell Automation
+### Step :three:: Script Logic Implementation
+**Action:** Implemented a `foreach` loop script designed to parse a `names.txt` file and generate thousands of standardized Active Directory user objects.
+* **Evidence:** ![Script Logic](04_Script_Pasted.png)
 
-#### Step 1️⃣: Network Multi-Homing (Dual NICs)
+### Step :four:: Automation Persistence
+**Action:** Saved the automation logic as a reusable `.ps1` script for future deployment and auditing.
+* **Evidence:** ![Script Saved](05_Script_File_Saved.png)
 
-**Action:** Configured dual **Network Interface Cards (NICs)**. One adapter is set to **NAT** for external updates, while the other is set to an **Internal Network** for isolated lab communication.
+### Step :five:: Data Integration Verification
+**Action:** Verified that the `names.txt` source file was correctly placed alongside the script to ensure accurate variable mapping during execution.
+* **Evidence:** ![Data Prep](06_Script_and_Names_Ready.png)
 
-**Evidence:**
-![Network Config](1_Dual_NICs.png)
+### Step :six:: Live Execution (Bulk Creation)
+**Action:** Executed the script. The console reflects the real-time creation of several thousand accounts within the domain environment.
+* **Evidence:** ![Bulk User Creation](07_Script_Running.png)
 
----
-
-#### Step 2️⃣: Administrative Environment Prep
-
-**Action:** Launched the **PowerShell ISE** as Administrator to begin the automation workflow.
-
-**Evidence:**
-![ISE Setup](2_PowerShell_ISE_Open.png)
-
----
-
-#### Step 3️⃣: Script Implementation
-
-**Action:** Implemented a **foreach loop** script designed to parse a **names.txt** file and generate standardized **Active Directory user objects**.
-
-**Evidence:**
-![Script Logic](3_Script_Pasted.png)
-
----
-
-#### Step 4️⃣: Persistence & Documentation
-
-**Action:** Saved the automation logic as a reusable **.ps1 script** for future deployment and auditing.
-
-**Evidence:**
-![Script Saved](4_Script_File_Saved.png)
-
----
-
-#### Step 5️⃣: Data Integration Verification
-
-**Action:** Verified that the **names.txt** source file was correctly mapped to the script's input variable.
-
-**Evidence:**
-![Data Ready](5_Script_and_Names_Ready.png)
-
----
-
-#### Step 6️⃣: Live Execution (Bulk Creation)
-
-**Action:** Executed the script. The console reflects **real-time creation of 1,000+ accounts** in the domain.
-
-**Evidence:**
-![Script Running](6_Script_Running.png)
-
----
-
-#### Step 7️⃣: Final Active Directory Audit
-
-**Action:** Verified the successful creation of all objects within the **_EMPLOYEES Organizational Unit (OU)**.
-
-**Evidence:**
-![Final Audit](7_AD_Users_Verified.png)
-
+### Step :seven:: Final Active Directory Audit
+**Action:** Performed a manual verification within "Active Directory Users and Computers" to confirm the successful creation of all objects within the **_EMPLOYEES** Organizational Unit (OU).
+* **Evidence:** ![AD Audit Verification](08_AD_Users_Verified.png)
 ---
 
 ## Phase 3: Active Directory Configuration & Domain Integration
