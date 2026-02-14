@@ -232,8 +232,7 @@ This project serves as the foundation for enterprise identity management.
 
 ### 🎓 Portfolio Navigation
 * **[ ⬅️ Previous Project: N/A ]**
-* **[ ➡️ Next Project: Azure AD Hybrid Integration (In Development) ]**
-
+* **[ ➡️ Next Project: Azure AD Hybrid Integration (In Progress) ](https://github.com/techboulnp-gif/Azure-Hybrid-Identity-Lab)**
 ---
 **Created by:** Art Johnson | **Date:** 2026 | **Status:** 🟢 Complete
 
