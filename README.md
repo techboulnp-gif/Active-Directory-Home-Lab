@@ -195,6 +195,8 @@ In this phase, I transformed the standalone server into a central management hub
 * **Evidence:**
   ![Login Success](phase-3/14_Successful_Domain_User_Login.png)
 
+  ---
+
   
 ## 🚀 Outcomes & Results
 
@@ -216,9 +218,6 @@ In this phase, I transformed the standalone server into a central management hub
 * **Security Policy Implementation:** Learned to enforce security baselines and account management policies using GPOs.
 * **Technical Troubleshooting:** Successfully identified and resolved domain-specific issues, including IP conflicts and connectivity hurdles.
 * **Identity & Access Management (IAM):** Applied industry best practices for managing user and computer accounts in an enterprise environment.
-
-
----
 
 ---
 
