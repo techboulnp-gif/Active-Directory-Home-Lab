@@ -192,66 +192,42 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 
 ---
 
-### Phase 3: Active Directory Configuration & Domain Integration
-**In this phase, I transformed the standalone server into a central management hub by implementing security policies, automating massive user growth, and integrating a workstation into the
+## Phase 3: Active Directory Configuration & Domain Integration
+In this phase, I transformed the standalone server into a central management hub by implementing security policies, automating massive user growth, and integrating a workstation into the domain.
 
-#### Step 8️⃣: DHCP Role Installation
-**Action:** Installed the **DHCP Server role** on DC01 to enable automatic IP address assignment for client machines on the internal network.
-**Evidence:**
-![DHCP Role](phase-3/9_DHCP_Role_Installed.png)
----
+### Step :one:: DHCP Role Installation
+**Action:** Installed the DHCP Server role on DC01 to enable automatic IP address assignment for client machines.
+* **Evidence:** ![DHCP Role](phase-3/9_DHCP_Role_Installed.png)
 
-#### Step 9️⃣: DHCP Authorization
-**Action:** **Authorized the DHCP server** in Active Directory to allow it to begin servicing client requests on the domain network.
-**Evidence:**
-![DHCP Authorized](phase-3/10_DHCP_Authorized.png)
----
+### Step :two:: DHCP Authorization
+**Action:** Authorized the DHCP server in Active Directory to allow it to begin servicing client requests.
+* **Evidence:** ![DHCP Auth](phase-3/10_DHCP_Authorized.png)
 
-#### Step 🔟: DHCP Scope Configuration
-**Action:** Created and activated a **DHCP scope (172.16.0.100-200)** to automatically assign IP addresses to Windows 10 clients joining the domain.
-**Evidence:**
-![DHCP Scope](phase-3/11_DHCP_Scope_Active.png)
----
+### Step :three:: DHCP Scope Configuration
+**Action:** Created and activated a DHCP scope (172.16.0.100-200) to assign IP addresses to Windows 10 clients.
+* **Evidence:** ![DHCP Scope](phase-3/11_DHCP_Scope_Active.png)
 
-domain.**
+### Step :four:: Automation & "Big Data" Management
+**Action:** Using a PowerShell script and a names.txt file, I automated the creation of **5,000 users**.
+* **The Display Limit:** Documented the AD safety limit, which defaults to 2,000 objects.
+* **Evidence:** ![Bulk Users](phase-3/11b_Bulk_User_Verification.png)
 
-#### Step 8️⃣: Security Hardening (Group Policy)
-**Action:** I used the **Group Policy Management Editor** to enforce an enterprise-grade security baseline:
-- **Minimum Password Length:** Increased to **12 characters**.
-- **Complexity Requirements:** Enabled to ensure passwords meet modern security standards.
-- **Enforce Password History:** Set to **24 passwords** to prevent "cycling" old credentials.
-**Evidence:**
-![Password Policy](phase-3/12_Password_Lockout_Policy.png)
----
-### Step 9: Automation & "Big Data" Management
-**Action:** Using a PowerShell script and a names.txt file, I automated the creation of **5,000** users.
-* **The Display Limit:** During verification, I documented the AD safety limit, which defaults to 2,000 objects.
-* **Verification:** Successfully customized the MMC view to confirm all **5,000 objects** were provisioned.
-* **Evidence:** [Bulk Users](image_971c36.png)
+### Step :five:: Critical Troubleshooting: The Duplicate IP Conflict
+**Action:** Identified a `(Duplicate)` IP status for `172.16.0.1` and reconfigured the client to `172.16.0.2`.
+* **Evidence:** ![IP Conflict](phase-3/11c_Troubleshooting_IP_Conflict.png)
 
-  
+### Step :six:: Security Hardening (Group Policy)
+**Action:** Enforced an enterprise-grade security baseline, including a **12-character minimum password length**.
+* **Policy Settings:** Enabled complexity requirements and enforced a 24-password history.
+* **Evidence:** ![GPO Baseline](phase-3/12_Password_Lockout_Policy.png)
 
----
-### Step 10: Critical Troubleshooting: The Duplicate IP Conflict
-**Action:** A major hurdle occurred when the Windows 10 client could not reach the Domain Controller.
-* **Diagnosis:** Using `ipconfig /all`, I identified a `(Duplicate)` IP status for `172.16.0.1`.
-* **Resolution:** Reconfigured the client with a unique static IP of `172.16.0.2`, restoring domain communication.
-* **Evidence:** [IP Conflict](image_98081a.png)
+### Step :seven:: Domain Join & Verification
+**Action:** Successfully joined the workstation to the `mylab.local` domain.
+* **Evidence:** ![Domain Join](phase-3/13_Domain_Join_Success.png)
 
-  
-
----
-#### Step 1️⃣1️⃣: Domain Join & Verification
-**Action:** Successfully joined the workstation to **mylab.local**, receiving the "Welcome" handshake.
-**Evidence:**
-![Domain Join](phase-3/13_Domain_Join_Success.png)
----
-#### Step 1️⃣2️⃣: User Authentication Confirmation
-**Action:** Logged in to the client as **domain user fus.masa**. This confirmed that **DNS, DHCP, and AD Authentication** are all working in harmony.
-**Evidence:**
-![User Login](phase-3/14_Successful_Domain_User_Login.png)
----
-
+### Step :eight:: User Authentication Confirmation
+**Action:** Logged in to the client as a domain user to confirm that DNS, DHCP, and AD are working in harmony.
+* **Evidence:** ![Login Success](phase-3/14_Successful_Domain_User_Login.png)
 ## ✅ Outcomes & Results
 
 - ✅ Successfully built a **functional domain environment** with Windows Server 2022 Domain Controller
