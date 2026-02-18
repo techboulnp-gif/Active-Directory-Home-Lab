@@ -205,7 +205,7 @@ In this phase, I transformed the standalone server into a central management hub
 
 * **Functional Domain Environment:** Successfully built a functional domain environment using a Windows Server 2022 Domain Controller.
 * **Enterprise Service Configuration:** Deployed and validated core services including AD DS, DNS, and authorized DHCP scopes.
-* **Scalability at Scale:** Demonstrated the ability to manage massive user growth by automating the creation of thousands of user accounts.
+* **Scalability at Scale:** Demonstrated the ability to manage massive user growth by automating the creation of 5,000 user accounts.
 * **Security Hardening:** Implemented enterprise-grade security policies and password complexity requirements using Group Policy Objects.
 * **Validated Connectivity:** Confirmed full domain functionality through successful workstation integration and domain user authentication.
 
@@ -224,18 +224,14 @@ In this phase, I transformed the standalone server into a central management hub
 
 ---
 
-## 🗺️ Project Roadmap & Portfolio Navigation
+## 🗺️ Project Roadmap
+* **Step 1: On-Premise Foundation** ✅
+* **Step 2: [Hybrid Cloud Bridge](https://github.com/techboulnp-gif/Azure-Hybrid-Identity-Lab)** 🟡
+* **Step 3: Security Hardening & Monitoring** ⚪
 
-### 📍 Current Phase: On-Premise Infrastructure (Complete)
-This project serves as the foundation for enterprise identity management.
-
-* **Step 1: On-Premise Foundation** (You are here)
-* **Step 2: [Hybrid Cloud Bridge (Coming Soon)](#)** — Synchronizing this lab with Azure/Entra ID via Azure AD Connect.
-* **Step 3: [Security Hardening & Monitoring (Planned)](#)** — Implementing advanced GPO security, Kerberos hardening, and gMSAs.
-
-### 🎓 Portfolio Navigation
-* **[ ⬅️ Previous Project: N/A ]**
-* **[ ➡️ Next Project: Azure AD Hybrid Integration (In Progress) ](https://github.com/techboulnp-gif/Azure-Hybrid-Identity-Lab)**
 ---
+
+[⬅️ Back to Main Portfolio](https://github.com/techboulnp-gif)
+
 **Created by:** Art Johnson | **Date:** 2026 | **Status:** 🟢 Complete
 
