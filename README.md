@@ -34,7 +34,6 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 
 ## 📊 Network Diagram
 
-~~~text
 ┌──────────────────────────────────────────────────────────────┐
 │        ACTIVE DIRECTORY LAB - INFRASTRUCTURE ARCHITECTURE     │
 └──────────────────────────────────────────────────────────────┘
@@ -65,11 +64,8 @@ To simulate a **corporate network environment** by configuring a **Windows Serve
 
 Project Scale Note: This infrastructure demonstrates on-premise Active 
 Directory setup with a single domain-joined client for policy verification.
-~~~
 
-```
-
----
+***
 
 ## 🚀 Implementation Steps
 
