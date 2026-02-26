@@ -77,7 +77,7 @@ This phase focuses on provisioning the underlying hardware and operating system 
 
 
   
-  *  ![Resource Calibration](Active-Directory-Lab/docs/phase-1/01_DC01_Hardware_Summary.png)
+  *  ![Resource Calibration](https://github.com/techboulnp-gif/Active-Directory-Home-Lab/blob/bb20c7ed9b89c21b8da284d90228b8d57334db60/Active-Directory-Lab/docs/phase-1/1%20DC01%20Hardware%20Summary.png)
   
 
 ### Step :two:: OS Selection (Part 1)
